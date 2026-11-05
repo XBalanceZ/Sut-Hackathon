@@ -121,7 +121,7 @@ FindCat เป็นโปรเจกต์ต้นแบบที่พัฒ
 ## 👨‍💻 ข้อมูลโปรเจกต์
 
 - **ชื่อโปรเจกต์:** FindCat
-- **กิจกรรม:** SUT Hackathon
+- **กิจกรรม:** SUT-DIGITAL HACKATHON 1-4 JUNE 2026
 - **GitHub Repository:** [XBalanceZ/Sut-Hackathon](https://github.com/XBalanceZ/Sut-Hackathon)
 
 ---
