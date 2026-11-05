@@ -1,0 +1,328 @@
+:root {
+  --meow-orange: #ffb088;
+  --meow-orange-deep: #ff8c5a;
+  --meow-orange-soft: #fff0e8;
+  --meow-purple: #9b7ede;
+  --meow-purple-deep: #7c5cbf;
+  --meow-purple-soft: #f3eeff;
+  --meow-white: #ffffff;
+  --meow-bg: #faf8ff;
+  --meow-text: #3d3550;
+  --meow-muted: #8a8199;
+  --meow-border: #efe8f5;
+  --meow-danger: #ff5c5c;
+  --meow-danger-soft: #fff0f0;
+  --meow-success: #4ecb71;
+  --meow-shadow: 0 4px 20px rgba(124, 92, 191, 0.12);
+  --meow-radius: 16px;
+  --meow-radius-sm: 12px;
+  --header-h: 52px;
+  --nav-h: 62px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.meow-app {
+  min-height: 100svh;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--meow-bg);
+  color: var(--meow-text);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 0 1px var(--meow-border);
+}
+
+.meow-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--meow-orange) 0%, var(--meow-purple) 100%);
+  color: #fff;
+}
+
+.meow-header-back {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.meow-header-title {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.meow-header-badge {
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+}
+
+.meow-main {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: calc(var(--nav-h) + var(--safe-bottom) + 12px);
+}
+
+.meow-main.no-nav {
+  padding-bottom: 16px;
+}
+
+.meow-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: calc(var(--nav-h) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  display: flex;
+  background: var(--meow-white);
+  border-top: 1px solid var(--meow-border);
+  box-shadow: 0 -4px 16px rgba(61, 53, 80, 0.06);
+  z-index: 100;
+}
+
+.meow-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--meow-muted);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 6px 4px;
+  transition: color 0.2s;
+}
+
+.meow-nav-item span.nav-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.meow-nav-item.active {
+  color: var(--meow-purple-deep);
+}
+
+.meow-nav-item.active .nav-icon {
+  transform: scale(1.08);
+}
+
+.meow-card {
+  background: var(--meow-white);
+  border-radius: var(--meow-radius);
+  padding: 16px;
+  margin: 12px;
+  box-shadow: var(--meow-shadow);
+  border: 1px solid var(--meow-border);
+}
+
+.meow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: var(--meow-radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.meow-btn:active {
+  transform: scale(0.98);
+}
+
+.meow-btn-primary {
+  background: linear-gradient(135deg, var(--meow-orange-deep), var(--meow-purple));
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(124, 92, 191, 0.35);
+}
+
+.meow-btn-danger {
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(255, 71, 87, 0.35);
+}
+
+.meow-btn-outline {
+  background: var(--meow-white);
+  color: var(--meow-purple-deep);
+  border: 2px solid var(--meow-purple);
+}
+
+.meow-tabs {
+  display: flex;
+  margin: 12px 12px 0;
+  background: var(--meow-white);
+  border-radius: var(--meow-radius-sm);
+  padding: 4px;
+  border: 1px solid var(--meow-border);
+}
+
+.meow-tab {
+  flex: 1;
+  padding: 10px 8px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--meow-muted);
+  cursor: pointer;
+}
+
+.meow-tab.active {
+  background: linear-gradient(135deg, var(--meow-orange-soft), var(--meow-purple-soft));
+  color: var(--meow-purple-deep);
+}
+
+.meow-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: var(--meow-white);
+  color: var(--meow-text);
+}
+
+.meow-chip.selected {
+  border-color: var(--meow-purple);
+  background: var(--meow-purple-soft);
+  color: var(--meow-purple-deep);
+}
+
+.meow-chip.premium {
+  border-color: var(--meow-orange-deep);
+  background: var(--meow-orange-soft);
+}
+
+.meow-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--meow-border);
+  border-radius: var(--meow-radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: var(--meow-white);
+}
+
+.meow-input:focus {
+  outline: none;
+  border-color: var(--meow-purple);
+  box-shadow: 0 0 0 3px rgba(155, 126, 222, 0.2);
+}
+
+.meow-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--meow-text);
+}
+
+.confidence-high { color: #059669; background: #ecfdf5; }
+.confidence-medium { color: #b45309; background: #fffbeb; }
+.confidence-low { color: #dc2626; background: #fef2f2; }
+
+/* Logout Button from Uiverse.io */
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(255, 65, 65);
+}
+
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+
+.Btn-text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+
+.Btn:hover .Btn-text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+
+.Btn:active {
+  transform: translate(2px, 2px);
+}

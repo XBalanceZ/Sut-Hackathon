@@ -1,0 +1,500 @@
+/* ==========================================================================
+   🔍 FINDER SCAN PAGE - CLEAN & OPTIMIZED VERSION
+   ========================================================================== */
+
+.finder-intro {
+  margin: 12px 16px;
+  font-size: 0.9rem;
+  color: var(--meow-muted);
+}
+
+/* 📦 1. ส่วนแสดงผล Viewport สี่เหลี่ยมจัตุรัส จัดกึ่งกลางสมบูรณ์ */
+.scan-viewport {
+  position: relative;
+  width: calc(100% - 24px);
+  /* เว้นขอบข้างละ 12px ให้สมดุล */
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  background-color: #1a1520;
+  border-radius: var(--meow-radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.scan-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scan-empty {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.scan-empty span {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+/* 🎯 2. โครงสร้าง Frame ล็อกใบหน้าแมวกึ่งกลางจอสีเขียว */
+.face-target-frame {
+  position: absolute;
+  width: 65%;
+  /* ขนาดกว้างพอดีกับใบหน้าแมวเมื่อส่อง */
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  /* ยอมให้คลิกทะลุเลเยอร์ได้ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* จุดไข่ปลานำสายตากึ่งกลางกรอบ */
+.target-dot {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(46, 204, 113, 0.7);
+  border-radius: 50%;
+}
+
+/* สร้างสัญลักษณ์มุมกรอบสีเขียวสไตล์ Finder */
+.face-target-frame .corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 4px solid #2ecc71;
+}
+
+.face-target-frame .top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 12px;
+}
+
+.face-target-frame .top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 12px;
+}
+
+.face-target-frame .bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 12px;
+}
+
+.face-target-frame .bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 12px;
+}
+
+/* ⏳ 3. เลเยอร์ประมวลผล AI และ แอนิเมชันเส้นสแกนเนอร์ */
+.ai-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 21, 32, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #fff;
+  z-index: 5;
+}
+
+.ai-scanner {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--meow-orange, #ff7a45), transparent);
+  box-shadow: 0 0 12px var(--meow-orange, #ff7a45);
+  animation: ai-scan-square 2s ease-in-out infinite;
+}
+
+/* ปรับปรุงแอนิเมชันให้วิ่งขึ้นลงสมดุลภายในกรอบ Square จัตุรัส */
+@keyframes ai-scan-square {
+  0% {
+    top: 15%;
+    opacity: 0.3;
+  }
+
+  50% {
+    top: 85%;
+    opacity: 1;
+  }
+
+  100% {
+    top: 15%;
+    opacity: 0.3;
+  }
+}
+
+.ai-step {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 40px 0 16px 0;
+  /* เว้นระยะลงมาจากเส้นสแกน */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.frame-strip {
+  display: flex;
+  gap: 6px;
+}
+
+.frame-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.frame-thumb.best {
+  border-color: var(--meow-orange);
+  background: rgba(255, 176, 136, 0.4);
+}
+
+.frame-thumb.best span {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  white-space: nowrap;
+  color: var(--meow-orange);
+  font-weight: 700;
+}
+
+/* 📍 4. ข้อมูลพิกัดเช็คอิน */
+.location-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.location-card span {
+  font-size: 1.5rem;
+}
+
+.location-card p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--meow-muted);
+}
+
+.finder-actions {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 💳 5. ระบบกระเป๋าเงิน (Wallet & Escrow) */
+.wallet-balance-card {
+  margin: 12px;
+  padding: 24px 20px;
+  border-radius: var(--meow-radius);
+  background: linear-gradient(145deg, var(--meow-purple-deep), var(--meow-orange-deep));
+  color: #fff;
+}
+
+.wallet-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.wallet-balance {
+  display: block;
+  font-size: 2.5rem;
+  margin: 8px 0 20px;
+  letter-spacing: -0.02em;
+}
+
+.escrow-badge {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--meow-radius-sm);
+  backdrop-filter: blur(8px);
+}
+
+.escrow-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.escrow-badge strong {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.escrow-badge p {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* 🔐 6. ระบบยืนยันตนด่วน (Quick Login & User Bar) */
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(61, 53, 80, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 999;
+}
+
+.login-modal {
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 28px 20px 36px;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 -8px 40px rgba(61, 53, 80, 0.18);
+  animation: slide-up 0.25s ease;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.finder-user-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: var(--meow-white);
+  border-bottom: 1px solid var(--meow-border);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--meow-text);
+}
+
+.finder-logout-btn {
+  background: none;
+  border: 1px solid var(--meow-border);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  color: var(--meow-muted);
+}
+
+/* 🎯 7. การ์ดผลลัพธ์การจับคู่โมเดล AI (Match Result Cards) */
+.match-result-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--meow-border);
+}
+
+.match-result-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.match-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--meow-orange-soft);
+}
+
+.match-thumb-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: var(--meow-orange-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.match-info strong {
+  font-size: 0.95rem;
+}
+
+.match-breed {
+  font-size: 0.75rem;
+  color: var(--meow-muted);
+}
+
+.match-conf {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.match-sos-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #fff2f0;
+  color: #cf1322;
+  padding: 2px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.hidden-input {
+  display: none;
+}
+
+/* ---- finder-actions layout ---- */
+.finder-actions {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.finder-actions-row {
+  display: flex;
+  gap: 10px;
+}
+
+.finder-actions-row .meow-btn {
+  flex: 1;
+}
+
+/* ---- login-modal text ---- */
+.login-modal-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.login-modal h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+
+.login-modal p {
+  margin: 0 0 16px;
+  color: var(--meow-muted);
+  font-size: 0.9rem;
+}
+
+/* ---- match-owner ---- */
+.match-owner {
+  font-size: 0.78rem;
+  color: var(--meow-purple-deep);
+  font-weight: 600;
+}
+
+/* ---- pet selector (used by OwnerSOSPage) ---- */
+.pet-selector-grid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.pet-selector-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 2px solid var(--meow-border);
+  border-radius: 14px;
+  background: var(--meow-white);
+  cursor: pointer;
+  min-width: 80px;
+  position: relative;
+  transition: all 0.15s;
+}
+
+.pet-selector-card.selected {
+  border-color: var(--meow-orange-deep);
+  background: var(--meow-orange-soft);
+}
+
+.pet-selector-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--meow-purple-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.pet-selector-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pet-selector-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--meow-text);
+  text-align: center;
+  max-width: 72px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pet-selector-premium {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 0.75rem;
+}

@@ -1,0 +1,557 @@
+.page-intro {
+  margin: 12px 16px 8px;
+  font-size: 0.9rem;
+  color: var(--meow-muted);
+  line-height: 1.5;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.open-camera-btn {
+  margin: 0 12px 8px;
+  width: calc(100% - 24px);
+}
+
+.sticky-actions {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.passport-panel {
+  padding: 0 12px 24px;
+}
+
+.passport-header {
+  background: linear-gradient(135deg, var(--meow-purple-soft), var(--meow-orange-soft));
+  border-radius: var(--meow-radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--meow-border);
+}
+
+.passport-stamp {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--meow-purple-deep);
+}
+
+.passport-header h2 {
+  margin: 8px 0 4px;
+  font-size: 1.25rem;
+}
+
+.passport-header p {
+  margin: 0;
+  color: var(--meow-muted);
+}
+
+.vaccine-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.vaccine-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background: var(--meow-white);
+  border-radius: var(--meow-radius-sm);
+  margin-bottom: 8px;
+  border: 1px solid var(--meow-border);
+}
+
+.vaccine-date {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--meow-muted);
+  margin-top: 4px;
+}
+
+.vaccine-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.status-ok {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.status-warn {
+  background: #fffbeb;
+  color: #b45309;
+}
+
+/* SOS */
+.sos-banner {
+  margin: 12px;
+  padding: 16px;
+  border-radius: var(--meow-radius);
+  background: linear-gradient(135deg, #ff6b6b, #ff8c5a);
+  color: #fff;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sos-pulse {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  animation: sos-blink 1s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes sos-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
+  }
+
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+}
+
+.sos-banner h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.sos-banner p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
+
+.map-mock {
+  text-align: center;
+  min-height: 140px;
+  background: linear-gradient(180deg, #e8f4e8, #f5f0ff);
+  position: relative;
+}
+
+.map-pin {
+  font-size: 2.5rem;
+}
+
+.map-radius-label {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: var(--meow-purple-soft);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--meow-purple-deep);
+}
+
+.card-title {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.chip-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fee-breakdown {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--meow-border);
+}
+
+.fee-breakdown>div {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.9rem;
+}
+
+.fee-breakdown span {
+  color: var(--meow-muted);
+}
+
+.fee-total {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--meow-border);
+  font-size: 1.05rem !important;
+}
+
+.fee-total strong {
+  color: var(--meow-danger);
+  font-size: 1.2rem;
+}
+
+.sos-actions .one-click-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--meow-muted);
+  margin: 0;
+}
+
+.success-card {
+  text-align: center;
+  background: #ecfdf5 !important;
+  border-color: #6ee7b7 !important;
+}
+
+.success-card span {
+  font-size: 2rem;
+}
+
+.spinner-inline {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tracking split */
+.split-track {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - var(--header-h) - var(--nav-h) - 20px);
+}
+
+.map-panel {
+  flex: 0 0 42%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-live {
+  flex: 1;
+  margin: 8px 12px;
+  border-radius: var(--meow-radius);
+  background: linear-gradient(160deg, #d4e8d4 0%, #e8dff5 50%, #ffe8dc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-route {
+  position: absolute;
+  inset: 20%;
+  border: 3px dashed var(--meow-purple);
+  border-radius: 40% 60% 50% 50%;
+  opacity: 0.6;
+}
+
+.pin-finder,
+.pin-cat,
+.pin-owner {
+  position: absolute;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.pin-finder {
+  top: 25%;
+  left: 30%;
+}
+
+.pin-cat {
+  top: 45%;
+  right: 35%;
+}
+
+.pin-owner {
+  bottom: 25%;
+  left: 45%;
+}
+
+.eta-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0 12px 8px;
+  padding: 12px;
+  background: var(--meow-white);
+  border-radius: var(--meow-radius-sm);
+  border: 1px solid var(--meow-border);
+  font-size: 0.75rem;
+}
+
+.eta-label {
+  display: block;
+  color: var(--meow-muted);
+  margin-bottom: 2px;
+}
+
+.eta-value {
+  font-size: 1.1rem;
+  color: var(--meow-purple-deep);
+}
+
+.chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--meow-white);
+  border-top: 1px solid var(--meow-border);
+  margin: 0 12px 12px;
+  border-radius: var(--meow-radius) var(--meow-radius) 0 0;
+  overflow: hidden;
+  box-shadow: var(--meow-shadow);
+}
+
+.chat-secure-bar {
+  padding: 10px 12px;
+  background: var(--meow-purple-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--meow-purple-deep);
+  text-align: center;
+}
+
+.chat-messages {
+  flex: 1;
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+  overflow-y: auto;
+  max-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+}
+
+.chat-bubble p {
+  margin: 0 0 4px;
+}
+
+.chat-bubble time {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.chat-finder {
+  align-self: flex-start;
+  background: var(--meow-orange-soft);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-owner {
+  align-self: flex-end;
+  background: var(--meow-purple-soft);
+  border-bottom-right-radius: 4px;
+}
+
+.chat-system {
+  align-self: center;
+  background: #f1f5f9;
+  font-size: 0.8rem;
+  max-width: 95%;
+  text-align: center;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--meow-border);
+}
+
+.chat-input-row .meow-input {
+  flex: 1;
+}
+
+.chat-send {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--meow-orange-deep), var(--meow-purple));
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   📸 ชุดปรับปรุงสไตล์ระบบสแกนใบหน้าแมว (Fixed UI)
+   ========================================== */
+
+.camera-container-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.video-stream-wrapper {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #1a1a1e;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+}
+
+.live-media-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay-container-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 🛠️ แก้ไขบั๊กเฟรมดำตรงจุดนี้: เพิ่ม position เพื่อให้ดึง z-index ขึ้นมาทำงานเหนือน้ำสำเร็จ */
+.camera-placeholder {
+  position: absolute;
+  /* 🔥 ดึงให้ลอยเหนือ Background ทึบ */
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  color: #8e8e93;
+  /* สีเทาอ่อนให้เห็นเด่นชัด */
+  text-align: center;
+  z-index: 1;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.camera-control-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 12px 1rem;
+  padding: 0;
+}
+
+.camera-control-wrapper .meow-btn {
+  flex: 1;
+  padding: 11px 14px;
+  font-size: 0.9rem;
+  border-radius: var(--meow-radius-sm);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.meow-btn-secondary {
+  background-color: var(--meow-purple-soft, #f3efff);
+  color: var(--meow-purple-deep, #6366f1);
+  border: 1px solid var(--meow-border);
+}
+
+.meow-btn-danger {
+  background-color: #ff4d4f;
+  color: #fff;
+  border: none;
+}
+
+/* ---- Register page — camera aiming frame ---- */
+.register-face-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.register-face-frame .corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 3.5px solid #2ecc71;
+}
+
+.register-face-frame .top-left {
+  top: 10%;
+  left: 10%;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 8px;
+}
+
+.register-face-frame .top-right {
+  top: 10%;
+  right: 10%;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 8px;
+}
+
+.register-face-frame .bottom-left {
+  bottom: 10%;
+  left: 10%;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+}
+
+.register-face-frame .bottom-right {
+  bottom: 10%;
+  right: 10%;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 8px;
+}
+
+/* Shared small button (logout, clear) */
+.finder-logout-btn {
+  background: none;
+  border: 1px solid var(--meow-border);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  color: var(--meow-muted);
+  white-space: nowrap;
+}

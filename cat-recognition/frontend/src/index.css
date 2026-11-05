@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+  font-family: 'Sarabun', system-ui, sans-serif;
+  background: #ece8f2;
+  color: #3d3550;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+button, input {
+  font-family: inherit;
+}

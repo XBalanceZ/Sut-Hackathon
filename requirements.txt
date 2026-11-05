@@ -1,0 +1,38 @@
+# FindCat FastAPI backend — pinned stack (2024–2025)
+# Python: 3.10–3.12 recommended
+# Apple Silicon (M4): install from PyPI; torch wheels include MPS (Metal) support.
+#   Verify: python -c "import torch; print(torch.backends.mps.is_available())"
+
+# --- Web API ---
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-multipart==0.0.18
+
+# --- Auth ---
+python-jose[cryptography]==3.3.0
+
+# --- Async I/O & database ---
+aiofiles==24.1.0
+sqlalchemy==2.0.36
+
+# --- Images & computer vision ---
+Pillow==10.4.0
+opencv-python-headless==4.10.0.84
+
+# --- Numerics & vector search ---
+numpy==1.26.4
+faiss-cpu==1.14.2
+
+# --- YOLOv5 Dependencies ---
+requests
+PyYAML
+tqdm
+scipy
+matplotlib
+pandas
+seaborn
+thop
+
+# --- ML (torch 2.5.x ↔ torchvision 0.20.x; macOS arm64 wheels on PyPI) ---
+torch==2.5.1
+torchvision==0.20.1
