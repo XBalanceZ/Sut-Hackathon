@@ -13,7 +13,8 @@ FindCat เป็นโปรเจกต์ต้นแบบที่พัฒ
 - **ระบบยืนยันตัวตน (Authentication)** — ใช้ JWT สำหรับการยืนยันตัวตนผู้ใช้งาน
 - **โครงสร้างระบบ Marketplace** — มีโครงสร้างข้อมูลสำหรับผู้ใช้งาน แมว ศูนย์พักพิง วัคซีน คำสั่งซื้อ และการสนทนา
   <img width="537" height="325" alt="image" src="https://github.com/user-attachments/assets/790f57e8-d264-455d-9294-e3f561618ad4" />
-  ![Uploading image.png…]()
+  <img width="517" height="342" alt="image" src="https://github.com/user-attachments/assets/41da23eb-fe0a-4f17-99e9-3b679b361f2a" />
+
 
 
 
